@@ -9,7 +9,7 @@
 header {
     padding: 20px;
     background-color: #EA1D2C;
-    height: 25vh;
+    height: 170px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -32,6 +32,7 @@ nav {
     display: flex;
     justify-content: space-evenly;
     padding: 0.5%;
+    height: 30px;
 }
 
 h4 {
