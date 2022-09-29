@@ -7,15 +7,18 @@
 }
 
 header {
+    padding: 20px;
     background-color: #EA1D2C;
     height: 25vh;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .logoPizzaria {
     width: 140px;
     border-radius: 15px;
+    margin-right: 20px;
 }
 
 h3 {
@@ -29,7 +32,14 @@ nav {
     display: flex;
     justify-content: space-evenly;
     padding: 0.5%;
+}
+
+h4 {
     font-size: 18px;
     color: white;
     font-family: 'Inter';
+}
+
+h4:hover {
+    cursor: pointer;
 }
