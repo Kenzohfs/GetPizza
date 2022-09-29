@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #EA1D2C;
+    height: 25vh;
+    display: flex;
+    align-items: center;
+}
+
+.logoPizzaria {
+    width: 140px;
+    border-radius: 15px;
+}
+
+h3 {
+    color: #FCF72B;
+    font-weight: bold;
+    font-family: 'Inter';
+}
+
+nav {
+    background-color: #052CE6;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0.5%;
+    font-size: 18px;
+    color: white;
+    font-family: 'Inter';
+}
