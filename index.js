@@ -1,28 +1,35 @@
 function avancarForms(etapaNum) {
-    let informacoes;
+    let informacoes, etapa = "";
     switch (etapaNum) {
         case 1:
             window.location.href = "dadosPessoais.html";
             break;
         case 2:
             informacoes = { pedido: buscarDadosPessoais() };
+            etapa = "DADOSPESSOAIS";
             window.location.href = "tamanho.html";
             break;
         case 3:
             informacoes = { tamanho: buscarDadosTamanho() };
+            etapa = "TAMANHO";
             window.location.href = "sabores.html";
             break;
         case 4:
             informacoes = { sabores: buscarDadosSabores() };
+            etapa = "SABORES";
             window.location.href = "adicionais.html";
             break;
         case 5:
             informacoes = { adicionais: buscarDadosAdicionais() };
+            etapa = "ADICIONAIS";
+            localStorage.setItem(etapa, JSON.stringify(informacoes));
             informacoes = { bebidas: buscarDadosBebidas() };
+            etapa = "BEBIDAS";
             window.location.href = "entrega.html";
             break;
         case 6:
             informacoes = { entrega: buscarDadosEntrega() };
+            etapa = "ENTREGA";
             window.location.href = "confirma.html";
             break;
         case 7:
@@ -30,7 +37,7 @@ function avancarForms(etapaNum) {
             break;
     }
 
-    localStorage.setItem("PEDIDO", JSON.stringify(informacoes));
+    localStorage.setItem(etapa, JSON.stringify(informacoes));
 }
 
 function buscarDadosPessoais() {
@@ -44,12 +51,12 @@ function buscarDadosPessoais() {
 
 function buscarDadosTamanho() {
     let tamanhoElement = document.querySelector(".selected-tamanho");
-    
+
     return JSON.parse(tamanhoElement.ariaValueText);
 }
 
 function buscarDadosSabores() {
-    let saboresElements = document.querySelectorAll(".selected-sabores");
+    let saboresElements = document.querySelectorAll(".selected-sabor");
 
     let sabores = [];
     for (let saborElement of saboresElements) {
@@ -94,7 +101,7 @@ function selecionarSabor(idSabor) {
     if (sabor.classList.contains("selected-sabor")) {
         sabor.classList.remove("selected-sabor");
     } else {
-        let qtdSabores = JSON.parse(localStorage.getItem("PEDIDO"));
+        let qtdSabores = JSON.parse(localStorage.getItem("TAMANHO"));
         let saborElementsSelected = document.querySelectorAll(".selected-sabor");
         if (saborElementsSelected.length < qtdSabores.tamanho.qtdsabores) {
         } else {
