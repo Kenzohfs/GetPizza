@@ -88,3 +88,7 @@ span {
     font-size: 14px;
     font-family: 'Inter';
 }
+
+.selected-adicional, .selected-bebida {
+    background-color: #c7c7c7;
+}
