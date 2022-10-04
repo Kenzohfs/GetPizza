@@ -1,20 +1,44 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/tamanho.css">
+    <link rel="stylesheet" href="../css/header.css">
     <title>Tamanho</title>
 </head>
+
 <body>
-    <iframe src="./header.html" width="100%" height="200" frameborder="0"></iframe>
+    <header>
+        <img class="logoPizzaria" src="../imagens/logo-getpizza.png">
+    </header>
+    <nav>
+        <h4>Dados Pessoais</h4>
+        <h4>Tamanho</h4>
+        <h4>Sabores</h4>
+        <h4>Adicionais</h4>
+        <h4>Entrega e Pagamento</h4>
+        <h4>Confirmação</h4>
+    </nav>
     <main>
         <div id="container">
-            <div id="conteudo">
-                <h3>Tamanho da Pizza</h3>
+            <div id="headForm">
+                <h2>Tamanho da Pizza</h2>
+                <button onclick="avancarForms(3)" class="botaoProximo">Próximo</button>
+            </div>
+            <div id="1" class="tamanho" aria-valuetext='{"tamanho": "pequeno", "qtdsabores": 2, "preco": 20.00}'
+                onclick="selecionarTamanho(1)">
+                <p>Pequeno</p>
+                <p>
+                    <span>2 Sabores</span>
+                    <span>R$ 20,00</span>
+                </p>
             </div>
         </div>
     </main>
+    <script src="../index.js"></script>
 </body>
+
 </html>
