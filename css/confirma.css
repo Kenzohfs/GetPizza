@@ -56,3 +56,31 @@ h4 {
     border-radius: 5px;
     font-size: 15px;
 }
+
+.divBotoesConfirma {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cancelar {
+    padding: 4px 20px;
+    background-color: white;
+    border: 1px solid gray;
+    font-family: 'Inter';
+}
+
+.cancelar:hover {
+    cursor: pointer;
+}
+
+.confirmar {
+    padding: 4px 20px;
+    background-color: #6C12FC;
+    border: 1px solid gray;
+    color: white;
+    font-family: 'Inter';
+}
+
+.confirmar:hover {
+    cursor: pointer;
+}
