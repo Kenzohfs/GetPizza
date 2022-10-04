@@ -50,28 +50,31 @@ function buscarDadosTamanho() {
 }
 
 function buscarDadosSabores() {
-    let saboresElements = document.querySelectorAll(".sabores");
+    let saboresElements = document.querySelectorAll(".selected-sabores");
 
     let sabores = [];
     for (let saborElement of saboresElements) {
-        sabores.push({ sabor: saborElement.value, preco: saborElement.preco });
+        sabores.push(JSON.parse(saborElement.ariaValueText));
     }
 
     return sabores;
 }
 
 function buscarDadosAdicionais() {
-    let adicional = document.getElementById("adicionalAdicional").value;
-    let preco = document.getElementById("precoAdicional").value;
+    let adicional = document.querySelector(".selected-adicional");
 
-    return { adicional, preco };
+    return JSON.parse(adicional.ariaValueText);
 }
 
 function buscarDadosBebidas() {
-    let bebida = document.getElementById("adicionalAdicional").value;
-    let preco = document.getElementById("precoAdicional").value;
+    let bebidaElements = document.querySelectorAll(".selected-bebida");
 
-    return { adicional, preco };
+    let bebidas = [];
+    for (let bebida of bebidaElements) {
+        bebidas.push(JSON.parse(bebida.ariaValueText));
+    }
+
+    return bebidas;
 }
 
 function selecionarTamanho(idTamanho) {
