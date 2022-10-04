@@ -94,9 +94,12 @@ function selecionarSabor(idSabor) {
     if (sabor.classList.contains("selected-sabor")) {
         sabor.classList.remove("selected-sabor");
     } else {
-        let saborElements = document.querySelectorAll(".quadradoSabor");
-        for (let saborElement of saborElements) {
-            saborElement.className = "quadradoSabor";
+        let qtdSabores = JSON.parse(localStorage.getItem("PEDIDO"));
+        let saborElementsSelected = document.querySelectorAll(".selected-sabor");
+        if (saborElementsSelected.length < qtdSabores.tamanho.qtdsabores) {
+        } else {
+            saborElementsSelected[0].className = "quadradoSabor";
+            saborElementsSelected = document.querySelectorAll(".selected-sabor");
         }
         sabor.classList.add("selected-sabor");
     }
