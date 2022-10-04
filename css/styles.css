@@ -63,3 +63,7 @@ h2 {
     color: white;
     bottom: 0px;
 }
+
+.botaoProximo:hover {
+    cursor: pointer;
+}

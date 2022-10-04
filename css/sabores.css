@@ -86,3 +86,13 @@ h5 {
 span {
     font-size: 12px;
 }
+
+.tituloAdicional {
+    display: flex;
+    align-items: center;
+}
+
+#numeroSabores {
+    font-size: 14px;
+    margin-left: 20px;
+}
