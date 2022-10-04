@@ -27,7 +27,6 @@ function avancarForms(etapaNum) {
             break;
         case 7:
             informacoes = { confirma: buscarDadosConfirma() };
-            window.location.href = "confirma.html";
             break;
     }
 
@@ -78,10 +77,27 @@ function buscarDadosBebidas() {
 }
 
 function selecionarTamanho(idTamanho) {
-    let tamanhoElements = document.querySelectorAll(".tamanho");
-    for (let tamanhoElement of tamanhoElements) {
-        tamanhoElement.className = "tamanho";
-    }
     let tamanho = document.getElementById(idTamanho);
-    tamanho.classList.add("selected-tamanho");
+    if (tamanho.classList.contains("selected-tamanho")) {
+        tamanho.classList.remove("selected-tamanho");
+    } else {
+        let tamanhoElements = document.querySelectorAll(".tamanho");
+        for (let tamanhoElement of tamanhoElements) {
+            tamanhoElement.className = "tamanho";
+        }
+        tamanho.classList.add("selected-tamanho");
+    }
+}
+
+function selecionarSabor(idSabor) {
+    let sabor = document.getElementById(idSabor);
+    if (sabor.classList.contains("selected-sabor")) {
+        sabor.classList.remove("selected-sabor");
+    } else {
+        let saborElements = document.querySelectorAll(".quadradoSabor");
+        for (let saborElement of saborElements) {
+            saborElement.className = "quadradoSabor";
+        }
+        sabor.classList.add("selected-sabor");
+    }
 }
