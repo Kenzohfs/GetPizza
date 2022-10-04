@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -47,44 +49,35 @@ h2 {
     cursor: pointer;
 }
 
-#conteudo {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 20px;
-    margin-top: 25px;
+label {
+    font-family: 'Inter';
+    font-size: 14px;
 }
 
-.quadradoAdicional {
-    padding: 8px;
-    min-width: 200px;
-    min-height: 140px;
-    width: 100%;
-    border: 1px solid rgba(0, 0, 0, 0.35);
+#checkboxEntrega {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.divDoisInputs {
+    justify-content: space-between;
+    width: 60%;
+    margin-top: 20px;
+    margin-bottom: 20px;
     display: flex;
-    cursor: pointer;
 }
 
-.infoAdicional {
+.input {
+    width: 45%;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    width: 60%;
 }
 
-.imgAdicional {
-    width: 40%;
-    border-radius: 10px;
-    border: 1px solid black;
-    max-height: 140px;
-}
-
-h5 {
-    font-size: 18px;
-    font-family: 'Inter';
-    color: #EA1D2C;
-}
-
-span {
-    font-size: 14px;
-    font-family: 'Inter';
+.inputTexto {
+    margin-top: 4px;
+    padding: 5px;
+    border: 1px solid gray;
+    border-left: 8px #EA1D2C solid;
+    outline: none;
+    height: 30px;
 }
