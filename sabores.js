@@ -4,13 +4,13 @@ function formatarNumeroSabores() {
     let elemento = document.getElementById("numeroSabores");
     saboresAtuais = document.querySelectorAll(".selected-sabor").length;
     console.log(saboresAtuais);
-    let numeroSabores = JSON.parse(localStorage.getItem("PEDIDO")).tamanho.qtdsabores;
+    let numeroSabores = JSON.parse(localStorage.getItem("TAMANHO")).tamanho.qtdsabores;
 
     elemento.innerText = saboresAtuais + " / " + numeroSabores;
 
     setTimeout(() => {
         formatarNumeroSabores();
-    }, 1000)
+    }, 500)
 }
 
 formatarNumeroSabores();
