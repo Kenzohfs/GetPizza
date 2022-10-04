@@ -6,55 +6,16 @@
     box-sizing: border-box;
 }
 
-header {
-    padding: 20px;
-    background-color: #EA1D2C;
-    height: 170px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.logoPizzaria {
-    width: 140px;
-    border-radius: 15px;
-    margin-right: 20px;
-}
-
-h3 {
-    color: #FCF72B;
-    font-weight: bold;
-    font-family: 'Inter';
-}
-
 main {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-nav {
-    background-color: #052CE6;
-    display: flex;
-    justify-content: space-evenly;
-    padding: 0.5%;
-    height: 30px;
-}
-
-h4 {
-    font-size: 18px;
-    color: white;
-    font-family: 'Inter';
-}
-
-h4:hover {
-    cursor: pointer;
-}
-
 .divPrincipal {
     margin-top: 30px;
     width: 80vw;
-    min-height: 55vh;
+    min-height: 65vh;
     box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25);
     border-radius: 3px;
     padding: 2% 3%;
@@ -84,4 +45,16 @@ h2 {
     min-height: 35px;
     padding-left: 10px;
     outline: none;
+}
+
+.botaoProximo {
+    background-color: #6C12FC;
+    padding: 8px 12px;
+    font-size: 16px;
+    font-family: 'Inter';
+    margin-right: 7%;
+    float: right;
+    border: 1px solid transparent;
+    color: white;
+    bottom: 0px;
 }
