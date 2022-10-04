@@ -11,7 +11,10 @@
     <iframe src="./header.html" width="100%" height="210" frameborder="0"></iframe>
     <main>
         <div class="divPrincipal">
-            <h2>Dados Pessoais</h2>
+            <div id="headForm">
+                <h2>Dados Pessoais</h2>
+                <button onclick="avancarForms(2)" class="botaoProximo">Próximo</button>
+            </div>
             <div class="divInputs">
                 <div class="input">
                     <label for="nomePessoa">Nome:</label>
@@ -32,8 +35,8 @@
                     <input id="telefonePessoa" class="inputDados">
                 </div>
             </div>
-            <button class="botaoProximo">Próximo</button>
         </div>
     </main>
+    <script src="../index.js"></script>
 </body>
 </html>
