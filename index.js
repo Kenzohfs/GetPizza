@@ -84,7 +84,20 @@ function buscarDadosBebidas() {
 }
 
 function buscarDadosEntrega() {
-
+    let radioBox = document.querySelector("input[name='radioEntrega']:checked");
+    let preco = 0;
+    if (radioBox.id == "checkboxEntrega") {
+        let estado = document.getElementById("estado").value;
+        let cpf = document.getElementById("cidade").value;
+        let email = document.getElementById("endereco").value;
+        let cep = document.getElementById("cep").value;
+        let numero = document.getElementById("numero").value;
+        let complemento = document.getElementById("complemento").value;
+        preco = 5;
+        return { preco, estado, cpf, email, cep, numero, complemento };
+    } else {
+        return { preco }
+    }
 }
 
 function selecionarTamanho(idTamanho) {
