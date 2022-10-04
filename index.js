@@ -5,35 +5,38 @@ function avancarForms(etapaNum) {
             window.location.href = "dadosPessoais.html";
             break;
         case 2:
-            informacoes = { pedido: buscarDadosPessoais() };
+            informacoes = buscarDadosPessoais();
             etapa = "DADOSPESSOAIS";
             window.location.href = "tamanho.html";
             break;
         case 3:
-            informacoes = { tamanho: buscarDadosTamanho() };
+            informacoes = buscarDadosTamanho();
             etapa = "TAMANHO";
             window.location.href = "sabores.html";
             break;
         case 4:
-            informacoes = { sabores: buscarDadosSabores() };
+            informacoes = buscarDadosSabores();
             etapa = "SABORES";
             window.location.href = "adicionais.html";
             break;
         case 5:
-            informacoes = { adicionais: buscarDadosAdicionais() };
+            informacoes = buscarDadosAdicionais();
             etapa = "ADICIONAIS";
             localStorage.setItem(etapa, JSON.stringify(informacoes));
-            informacoes = { bebidas: buscarDadosBebidas() };
+            informacoes = buscarDadosBebidas();
             etapa = "BEBIDAS";
             window.location.href = "entrega.html";
             break;
         case 6:
-            informacoes = { entrega: buscarDadosEntrega() };
+            informacoes = buscarDadosEntrega();
             etapa = "ENTREGA";
+            localStorage.setItem(etapa, JSON.stringify(informacoes));
+            etapa = "PAGAMENTO";
+            informacoes = buscarDadosPagamento();
             window.location.href = "confirma.html";
             break;
         case 7:
-            informacoes = { confirma: buscarDadosConfirma() };
+            informacoes = buscarDadosConfirma();
             break;
     }
 
@@ -94,10 +97,17 @@ function buscarDadosEntrega() {
         let numero = document.getElementById("numero").value;
         let complemento = document.getElementById("complemento").value;
         preco = 5;
-        return { preco, estado, cpf, email, cep, numero, complemento };
+
+        return [{ preco, estado, cpf, email, cep, numero, complemento }];
     } else {
-        return { preco }
+        return [{ preco }];
     }
+}
+
+function buscarDadosPagamento() {
+    let formaPagamento = document.querySelector(".selected-pagamento");
+
+    return JSON.parse(formaPagamento.ariaValueText);
 }
 
 function selecionarTamanho(idTamanho) {
@@ -120,7 +130,7 @@ function selecionarSabor(idSabor) {
     } else {
         let qtdSabores = JSON.parse(localStorage.getItem("TAMANHO"));
         let saborElementsSelected = document.querySelectorAll(".selected-sabor");
-        if (!saborElementsSelected.length < qtdSabores.tamanho.qtdsabores) {
+        if (!(saborElementsSelected.length < qtdSabores.qtdsabores)) {
             saborElementsSelected[0].className = "quadradoSabor";
             saborElementsSelected = document.querySelectorAll(".selected-sabor");
         }
@@ -147,5 +157,18 @@ function selecionarBebida(idBebida) {
         bebida.classList.remove("selected-bebida");
     } else {
         bebida.classList.add("selected-bebida");
+    }
+}
+
+function selecionarPagamento(idPag) {
+    let pagamento = document.getElementById(idPag);
+    if (pagamento.classList.contains("selected-pagamento")) {
+        pagamento.classList.remove("selected-pagamento");
+    } else {
+        let pagamentoElements = document.querySelectorAll(".quadradoPagamento");
+        for (let pagamentoElement of pagamentoElements) {
+            pagamentoElement.className = "quadradoPagamento";
+        }
+        pagamento.classList.add("selected-pagamento");
     }
 }

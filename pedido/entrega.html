@@ -69,15 +69,18 @@
                 <h2>Forma de Pagamento</h2>
             </div>
             <div id="conteudo">
-                <div class="quadradoPagamento">
+                <div id="pag1" onclick="selecionarPagamento('pag1')" class="quadradoPagamento" 
+                aria-valuetext='{"pagamento": "Boleto Bancário"}'>
                     <img class="imgPagamento" src="../imagens/boleto.png" alt="Boleto">
                     <span>Boleto Bancário</span>
                 </div>
-                <div class="quadradoPagamento">
+                <div id="pag2" onclick="selecionarPagamento('pag2')" class="quadradoPagamento"
+                aria-valuetext='{"pagamento": "PIX"}'>
                     <img class="imgPagamento" src="../imagens/pix.png" alt="PIX">
                     <span>PIX</span>
                 </div>
-                <div class="quadradoPagamento">
+                <div id="pag3" onclick="selecionarPagamento('pag3')" class="quadradoPagamento"
+                aria-valuetext='{"pagamento": "Cartão de Crédito"}'>
                     <img class="imgPagamento" src="../imagens/cartao.png" alt="Cartão de Crédito">
                     <span>Cartão de Crédito</span>
                 </div>

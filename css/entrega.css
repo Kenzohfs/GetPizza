@@ -110,3 +110,7 @@ span {
     text-align: center;
     font-family: 'Inter';
 }
+
+.selected-pagamento {
+    background-color: #c7c7c7;
+}
