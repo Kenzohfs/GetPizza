@@ -83,6 +83,10 @@ function buscarDadosBebidas() {
     return bebidas;
 }
 
+function buscarDadosEntrega() {
+
+}
+
 function selecionarTamanho(idTamanho) {
     let tamanho = document.getElementById(idTamanho);
     if (tamanho.classList.contains("selected-tamanho")) {
@@ -103,11 +107,32 @@ function selecionarSabor(idSabor) {
     } else {
         let qtdSabores = JSON.parse(localStorage.getItem("TAMANHO"));
         let saborElementsSelected = document.querySelectorAll(".selected-sabor");
-        if (saborElementsSelected.length < qtdSabores.tamanho.qtdsabores) {
-        } else {
+        if (!saborElementsSelected.length < qtdSabores.tamanho.qtdsabores) {
             saborElementsSelected[0].className = "quadradoSabor";
             saborElementsSelected = document.querySelectorAll(".selected-sabor");
         }
         sabor.classList.add("selected-sabor");
+    }
+}
+
+function selecionarAdicional(idAdicional) {
+    let adicional = document.getElementById(idAdicional);
+    if (adicional.classList.contains("selected-adicional")) {
+        adicional.classList.remove("selected-adicional");
+    } else {
+        let tamanhoElements = document.querySelectorAll(".quadradoAdicional");
+        for (let tamanhoElement of tamanhoElements) {
+            tamanhoElement.className = "quadradoAdicional";
+        }
+        adicional.classList.add("selected-adicional");
+    }
+}
+
+function selecionarBebida(idBebida) {
+    let bebida = document.getElementById(idBebida);
+    if (bebida.classList.contains("selected-bebida")) {
+        bebida.classList.remove("selected-bebida");
+    } else {
+        bebida.classList.add("selected-bebida");
     }
 }
