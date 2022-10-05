@@ -27,11 +27,13 @@ subtotalContainer.innerText = getPrecoBRL(subtotal.preco);
 let adicionaisContainer = document.getElementById("adicionais");
 let adicionais = JSON.parse(localStorage.getItem("ADICIONAIS"));
 
-adicionaisContainer.innerHTML = `<li><span>${adicionais.adicional}</span><span>${getPrecoBRL(adicionais.preco)}</span></li>`;
+adicionaisContainer.innerHTML = `<li class="espacoItemLista"><span>${adicionais.adicional}</span><span>${getPrecoBRL(adicionais.preco)}</span></li>`;
 
 let bebidas = JSON.parse(localStorage.getItem("BEBIDAS"));
+let precoBebida = 0;
 for (let bebida of bebidas) {
-    adicionaisContainer.innerHTML += `<li><span>${bebida.bebida}</span><span>${getPrecoBRL(bebida.preco)}</span></li>`;
+    precoBebida += bebida.preco;
+    adicionaisContainer.innerHTML += `<li class="espacoItemLista"><span>${bebida.bebida}</span><span>${getPrecoBRL(bebida.preco)}</span></li>`;
 }
 
 let entregaContainer = document.getElementById("entrega");
@@ -44,7 +46,7 @@ if (entrega.preco == 0) {
 }
 
 let totalPedidoContainer = document.getElementById("totalPedido");
-let totalPedido = subtotal.preco + adicionais.preco + entrega.preco;
+let totalPedido = subtotal.preco + adicionais.preco + entrega.preco + precoBebida;
 
 totalPedidoContainer.innerText = getPrecoBRL(totalPedido);
 

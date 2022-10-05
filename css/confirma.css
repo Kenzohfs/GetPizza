@@ -95,3 +95,28 @@ ul {
     flex-direction: column;
     justify-content: space-between;
 }
+
+.title-subtotal {
+    margin-top: 5px;
+    font-size: 17px;
+}
+
+h4 {
+    font-size: 20px;
+}
+
+.title-resumo {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+#entrega, .espacoItemLista {
+    display: flex;
+    justify-content: space-between;
+}
+
+#totalPedido {
+    font-size: 18px;
+    text-align: end;
+    margin-bottom: 10px;
+}
