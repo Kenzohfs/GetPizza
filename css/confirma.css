@@ -84,3 +84,8 @@ h4 {
 .confirmar:hover {
     cursor: pointer;
 }
+
+ul {
+    list-style-type: none;
+}
+

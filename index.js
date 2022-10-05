@@ -98,9 +98,9 @@ function buscarDadosEntrega() {
         let complemento = document.getElementById("complemento").value;
         preco = 5;
 
-        return [{ preco, estado, cpf, email, cep, numero, complemento }];
+        return { preco, estado, cpf, email, cep, numero, complemento };
     } else {
-        return [{ preco }];
+        return { preco };
     }
 }
 

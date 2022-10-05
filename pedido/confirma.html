@@ -29,38 +29,48 @@
                 <h4>Dados do Cliente</h4>
                 <div class="dadoCliente">
                     <span class="spanLabel">Nome:</span>
-                    <span class="spanDado">Felipe Gabriel Ramos</span>
+                    <span id="nomeCliente" class="spanDado"></span>
                 </div>
                 <div class="dadoCliente">
                     <span class="spanLabel">CPF:</span>
-                    <span class="spanDado">000.000.000-00</span>
+                    <span id="cpfCliente" class="spanDado"></span>
                 </div>
                 <div class="dadoCliente">
                     <span class="spanLabel">Email:</span>
-                    <span class="spanDado">felipe@gmail.com</span>
+                    <span id="emailCliente" class="spanDado"></span>
                 </div>
                 <div class="dadoCliente">
                     <span class="spanLabel">Telefone:</span>
-                    <span class="spanDado">00000-0000</span>
+                    <span id="telefoneCliente" class="spanDado"></span>
                 </div>
                 <div class="dadoCliente">
                     <span class="spanLabel">Forma de Pagamento:</span>
-                    <span class="spanDado">Boleto</span>
+                    <span id="formaPagamentoCliente" class="spanDado"></span>
                 </div>
             </div>
             <div class="divMenor">
                 <h4>Sabores</h4>
+                <ul id="sabores">
+                </ul>
+                <h5>Subtotal: <span id="subtotalSabores"></span></h5>
                 <h4>Adicionais</h4>
+                <ul id="adicionais">
+                </ul>
                 <h4>Entrega</h4>
+                <div id="entrega">
+
+                </div>
                 <h4>Total</h4>
+                <h5 id="totalPedido"></h5>
                 <div class="divBotoesConfirma">
-                    <button class="cancelar">Cancelar</button>
-                    <button class="confirmar">Confirmar</button>
+                    <button onclick="cancelarPedido()" class="cancelar">Cancelar</button>
+                    <button onclick="cancelarPedido()" class="confirmar">Confirmar</button>
                 </div>
             </div>
         </div>
     </main>
     <script src="../index.js"></script>
+    <script src="../confirma.js"></script>
 </body>
 
 </html>

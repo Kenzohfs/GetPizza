@@ -1,0 +1,65 @@
+let nomeCliente = document.getElementById("nomeCliente");
+let cpfCliente = document.getElementById("cpfCliente");
+let emailCliente = document.getElementById("emailCliente");
+let telefoneCliente = document.getElementById("telefoneCliente");
+let formaPagamento = document.getElementById("formaPagamentoCliente");
+
+let dadosPessoais = JSON.parse(localStorage.getItem("DADOSPESSOAIS"));
+let formaPagamentoDado = JSON.parse(localStorage.getItem("PAGAMENTO"));
+
+nomeCliente.innerText = dadosPessoais.nome;
+cpfCliente.innerText = dadosPessoais.cpf;
+emailCliente.innerText = dadosPessoais.email;
+telefoneCliente.innerText = dadosPessoais.telefone;
+formaPagamento.innerText = formaPagamentoDado.pagamento;
+
+let saboresContainer = document.getElementById("sabores");
+let sabores = JSON.parse(localStorage.getItem("SABORES"));
+for (let sabor of sabores) {
+    saboresContainer.innerHTML += `<li>${sabor.sabor}</li>`;
+}
+
+let subtotalContainer = document.getElementById("subtotalSabores");
+let subtotal = JSON.parse(localStorage.getItem("TAMANHO"));
+
+subtotalContainer.innerText = getPrecoBRL(subtotal.preco);
+
+let adicionaisContainer = document.getElementById("adicionais");
+let adicionais = JSON.parse(localStorage.getItem("ADICIONAIS"));
+
+adicionaisContainer.innerHTML = `<li><span>${adicionais.adicional}</span><span>${getPrecoBRL(adicionais.preco)}</span></li>`;
+
+let bebidas = JSON.parse(localStorage.getItem("BEBIDAS"));
+for (let bebida of bebidas) {
+    adicionaisContainer.innerHTML += `<li><span>${bebida.bebida}</span><span>${getPrecoBRL(bebida.preco)}</span></li>`;
+}
+
+let entregaContainer = document.getElementById("entrega");
+let entrega = JSON.parse(localStorage.getItem("ENTREGA"));
+
+if (entrega.preco == 0) {
+    entregaContainer.innerHTML = `<span>Retirada</span><span>${getPrecoBRL(entrega.preco)}</span>`;
+} else {
+    entregaContainer.innerHTML = `<span>Entrega</span><span>${getPrecoBRL(entrega.preco)}</span>`;
+}
+
+let totalPedidoContainer = document.getElementById("totalPedido");
+let totalPedido = subtotal.preco + adicionais.preco + entrega.preco;
+
+totalPedidoContainer.innerText = getPrecoBRL(totalPedido);
+
+function cancelarPedido() {
+    localStorage.clear();
+    alert("Pedido cancelado com sucesso!");
+    window.location.href = "dadosPessoais.html";
+}
+
+function confirmarPedido() {
+    localStorage.clear();
+    alert("Pedido confirmado com sucesso!");
+    window.location.href = "dadosPessoais.html";
+}
+
+function getPrecoBRL(preco) {
+    return preco.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+}
