@@ -6,18 +6,24 @@ function avancarForms(etapaNum) {
             break;
         case 2:
             informacoes = buscarDadosPessoais();
-            etapa = "DADOSPESSOAIS";
-            window.location.href = "tamanho.html";
+            if (dadosPessoaisValidos(informacoes)) {
+                etapa = "DADOSPESSOAIS";
+                window.location.href = "tamanho.html";
+            }
             break;
         case 3:
             informacoes = buscarDadosTamanho();
-            etapa = "TAMANHO";
-            window.location.href = "sabores.html";
+            if (dadosTamanhoValidos(informacoes)) {
+                etapa = "TAMANHO";
+                window.location.href = "sabores.html";
+            }
             break;
         case 4:
             informacoes = buscarDadosSabores();
-            etapa = "SABORES";
-            window.location.href = "adicionais.html";
+            if (dadosSaboresValidos(informacoes)) {
+                etapa = "SABORES";
+                window.location.href = "adicionais.html";
+            }
             break;
         case 5:
             informacoes = buscarDadosAdicionais();
@@ -29,11 +35,15 @@ function avancarForms(etapaNum) {
             break;
         case 6:
             informacoes = buscarDadosEntrega();
-            etapa = "ENTREGA";
-            localStorage.setItem(etapa, JSON.stringify(informacoes));
-            etapa = "PAGAMENTO";
-            informacoes = buscarDadosPagamento();
-            window.location.href = "confirma.html";
+            if (dadosEntregaValidos(informacoes)) {
+                etapa = "ENTREGA";
+                localStorage.setItem(etapa, JSON.stringify(informacoes));
+                etapa = "PAGAMENTO";
+                informacoes = buscarDadosPagamento();
+                if (dadosPagamento(informacoes)) {
+                    window.location.href = "confirma.html";
+                }
+            }
             break;
         case 7:
             informacoes = buscarDadosConfirma();
@@ -52,14 +62,37 @@ function buscarDadosPessoais() {
     return { nome, cpf, email, telefone };
 }
 
+function throwAlert(message) {
+    alert(message);
+}
+
+function dadosPessoaisValidos(informacoes) {
+    if (informacoes.nome == "" || informacoes.cpf == "" || informacoes.email == "" || informacoes.telefone == "") {
+        throwAlert("Insira todos os campos!");
+        return false;
+    }
+    return true;
+}
+
 function buscarDadosTamanho() {
     let tamanhoElement = document.querySelector(".selected-tamanho");
 
-    return JSON.parse(tamanhoElement.ariaValueText);
+    return (tamanhoElement != null ? JSON.parse(tamanhoElement.ariaValueText) : null);
+}
+
+function dadosTamanhoValidos(informacoes) {
+    if (informacoes)
+        return true;
+    throwAlert("Selecione um tamanho!");
+    return false
 }
 
 function buscarDadosSabores() {
     let saboresElements = document.querySelectorAll(".selected-sabor");
+
+    if (saboresElements.length != JSON.parse(localStorage.getItem("TAMANHO")).qtdsabores) {
+        return null;
+    }
 
     let sabores = [];
     for (let saborElement of saboresElements) {
@@ -69,10 +102,17 @@ function buscarDadosSabores() {
     return sabores;
 }
 
+function dadosSaboresValidos(informacoes) {
+    if (informacoes)
+        return true;
+    throwAlert("Selecione os sabores!");
+    return false
+}
+
 function buscarDadosAdicionais() {
     let adicional = document.querySelector(".selected-adicional");
 
-    return JSON.parse(adicional.ariaValueText);
+    return adicional ? JSON.parse(adicional.ariaValueText) : null;
 }
 
 function buscarDadosBebidas() {
@@ -88,6 +128,9 @@ function buscarDadosBebidas() {
 
 function buscarDadosEntrega() {
     let radioBox = document.querySelector("input[name='radioEntrega']:checked");
+    if (!radioBox)
+        return null;
+
     let preco = 0;
     if (radioBox.id == "checkboxEntrega") {
         let estado = document.getElementById("estado").value;
@@ -104,10 +147,25 @@ function buscarDadosEntrega() {
     }
 }
 
+function dadosEntregaValidos(informacoes) {
+    if (!informacoes) {
+        throwAlert("Selecione uma forma de entrega!");
+        return false
+    }
+    return true;
+}
+
+function dadosPagamento(informacoes) {
+    if (informacoes)
+        return true;
+    throwAlert("Selecione uma forma de pagamento!");
+    return false;
+}
+
 function buscarDadosPagamento() {
     let formaPagamento = document.querySelector(".selected-pagamento");
 
-    return JSON.parse(formaPagamento.ariaValueText);
+    return formaPagamento ? JSON.parse(formaPagamento.ariaValueText) : null;
 }
 
 function selecionarTamanho(idTamanho) {
