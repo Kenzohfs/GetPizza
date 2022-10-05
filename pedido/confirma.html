@@ -20,8 +20,8 @@
         <a href="./tamanho.html">Tamanho</a>
         <a href="./sabores.html">Sabores</a>
         <a href="./adicionais.html">Adicionais</h4>
-        <a href="./entrega.html">Entrega e Pagamento</a>
-        <a href="./confirma.html" style="text-decoration: underline;">Confirmação</a>
+            <a href="./entrega.html">Entrega e Pagamento</a>
+            <a href="./confirma.html" style="text-decoration: underline;">Confirmação</a>
     </nav>
     <main>
         <div class="divPrincipal">
@@ -48,20 +48,21 @@
                     <span id="formaPagamentoCliente" class="spanDado"></span>
                 </div>
             </div>
-            <div class="divMenor">
-                <h4>Sabores</h4>
-                <ul id="sabores">
-                </ul>
-                <h5>Subtotal: <span id="subtotalSabores"></span></h5>
-                <h4>Adicionais</h4>
-                <ul id="adicionais">
-                </ul>
-                <h4>Entrega</h4>
-                <div id="entrega">
-
+            <div class="divMenor dividirResumo">
+                <div id="resumo">
+                    <h4>Sabores</h4>
+                    <ul id="sabores">
+                    </ul>
+                    <h5>Subtotal: <span id="subtotalSabores"></span></h5>
+                    <h4>Adicionais</h4>
+                    <ul id="adicionais">
+                    </ul>
+                    <h4>Entrega</h4>
+                    <div id="entrega">
+                    </div>
+                    <h4>Total</h4>
+                    <h5 id="totalPedido"></h5>
                 </div>
-                <h4>Total</h4>
-                <h5 id="totalPedido"></h5>
                 <div class="divBotoesConfirma">
                     <button onclick="cancelarPedido()" class="cancelar">Cancelar</button>
                     <button onclick="cancelarPedido()" class="confirmar">Confirmar</button>
