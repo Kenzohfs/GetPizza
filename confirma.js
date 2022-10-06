@@ -63,5 +63,5 @@ function confirmarPedido() {
 }
 
 function getPrecoBRL(preco) {
-    return preco.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+    return preco.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
 }

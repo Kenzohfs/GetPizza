@@ -27,11 +27,13 @@ function avancarForms(etapaNum) {
             break;
         case 5:
             informacoes = buscarDadosAdicionais();
-            etapa = "ADICIONAIS";
-            localStorage.setItem(etapa, JSON.stringify(informacoes));
-            informacoes = buscarDadosBebidas();
-            etapa = "BEBIDAS";
-            window.location.href = "entrega.html";
+            if (dadosAdicionaisValidos(informacoes)) {
+                etapa = "ADICIONAIS";
+                localStorage.setItem(etapa, JSON.stringify(informacoes));
+                informacoes = buscarDadosBebidas();
+                etapa = "BEBIDAS";
+                window.location.href = "entrega.html";
+            }
             break;
         case 6:
             informacoes = buscarDadosEntrega();
@@ -113,6 +115,13 @@ function buscarDadosAdicionais() {
     let adicional = document.querySelector(".selected-adicional");
 
     return adicional ? JSON.parse(adicional.ariaValueText) : null;
+}
+
+function dadosAdicionaisValidos(informacoes) {
+    if (informacoes)
+        return true;
+    throwAlert("Selecione um adicional!");
+    return false;
 }
 
 function buscarDadosBebidas() {
