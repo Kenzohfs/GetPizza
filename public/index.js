@@ -2,27 +2,27 @@ function avancarForms(etapaNum) {
     let informacoes, etapa = "";
     switch (etapaNum) {
         case 1:
-            window.location.href = "dadosPessoais.html";
+            window.location.href = "/";
             break;
         case 2:
             informacoes = buscarDadosPessoais();
             if (dadosPessoaisValidos(informacoes)) {
                 etapa = "DADOSPESSOAIS";
-                window.location.href = "tamanho.html";
+                window.location.href = "size";
             }
             break;
         case 3:
             informacoes = buscarDadosTamanho();
             if (dadosTamanhoValidos(informacoes)) {
                 etapa = "TAMANHO";
-                window.location.href = "sabores.html";
+                window.location.href = "flavours";
             }
             break;
         case 4:
             informacoes = buscarDadosSabores();
             if (dadosSaboresValidos(informacoes)) {
                 etapa = "SABORES";
-                window.location.href = "adicionais.html";
+                window.location.href = "additionals";
             }
             break;
         case 5:
@@ -32,7 +32,7 @@ function avancarForms(etapaNum) {
                 localStorage.setItem(etapa, JSON.stringify(informacoes));
                 informacoes = buscarDadosBebidas();
                 etapa = "BEBIDAS";
-                window.location.href = "entrega.html";
+                window.location.href = "delivery";
             }
             break;
         case 6:
@@ -43,7 +43,7 @@ function avancarForms(etapaNum) {
                 etapa = "PAGAMENTO";
                 informacoes = buscarDadosPagamento();
                 if (dadosPagamento(informacoes)) {
-                    window.location.href = "confirma.html";
+                    window.location.href = "confirmation";
                 }
             }
             break;

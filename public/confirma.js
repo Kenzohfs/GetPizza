@@ -59,7 +59,7 @@ function cancelarPedido() {
 function confirmarPedido() {
     localStorage.clear();
     alert("Pedido confirmado com sucesso!");
-    window.location.href = "dadosPessoais.html";
+    window.location.href = "/";
 }
 
 function getPrecoBRL(preco) {
